@@ -5,7 +5,7 @@ package com.example.matrix;
  * @author vikesh
  *
  */
-public class RotateMatrixBy90 {
+public class RotateBy90AntiClockWise {
 
 	public void transpose(int[][] arr) {
 		for (int row = 0; row < arr.length; row++) {
@@ -45,7 +45,7 @@ public class RotateMatrixBy90 {
 
 		int[][] arr = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
 
-		RotateMatrixBy90 rmx = new RotateMatrixBy90();
+		RotateBy90AntiClockWise rmx = new RotateBy90AntiClockWise();
 		System.out.println("before rotation: ");
 		rmx.printMatrix(arr);
 		System.out.println("after rotation by 90 degree on column: ");

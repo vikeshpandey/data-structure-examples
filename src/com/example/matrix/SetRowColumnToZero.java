@@ -9,7 +9,7 @@ import java.util.List;
  * @author vikesh
  *
  */
-public class SetMatrixRowColumnToZero {
+public class SetRowColumnToZero {
 	class Element {
 		public int row;
 		public int col;
@@ -61,7 +61,7 @@ public class SetMatrixRowColumnToZero {
 
 	public static void main(String[] args) {
 		int[][] arr = { { 1, 2, 3,14 }, { 4, 0, 6,19 }, { 7, 8, 9,0 } };
-		SetMatrixRowColumnToZero sm = new SetMatrixRowColumnToZero();
+		SetRowColumnToZero sm = new SetRowColumnToZero();
 		System.out.println("original matrix: ");
 		sm.printMatrix(arr);
 		System.out.println("after setting to zero: ");

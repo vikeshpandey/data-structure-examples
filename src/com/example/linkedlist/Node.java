@@ -2,7 +2,6 @@ package com.example.linkedlist;
 
 
 public class Node {
-	
 		int value;
 		Node next;
 		
