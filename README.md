@@ -2,11 +2,11 @@
 
 ## This repository contains examples around various data structures like arrays, string, list, stack queues etc.
 
-## NOTE: 
+### NOTE: 
 This is an in-progress project. I will keep adding more and more problems and examples for various data structures.
 If you want to contribute, feel free to submit a merge request.
 
-## Following programs have been added so far. I will keep updating this readme as soon as i add more programs to this repository.
+### Following programs have been added so far. I will keep updating this readme as soon as i add more programs to this repository.
 
 ### LinkedList:
 * How to delete a middle node
