@@ -1,5 +1,11 @@
 package com.example.stringarray;
 
+/**
+ * this program converts a string into a url using %20.
+ * it also assumes that the string has sufficient space to perform this operation in-space
+ * @author vikesh
+ *
+ */
 public class UrlifyString {
 
 

@@ -3,6 +3,12 @@ package com.example.matrix;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This program demonstrates the following:
+ * if any element of the matrix is 0, the make its whole row values and column values to 0.
+ * @author vikesh
+ *
+ */
 public class SetMatrixRowColumnToZero {
 	class Element {
 		public int row;
@@ -55,15 +61,12 @@ public class SetMatrixRowColumnToZero {
 
 	public static void main(String[] args) {
 		int[][] arr = { { 1, 2, 3,14 }, { 4, 0, 6,19 }, { 7, 8, 9,0 } };
-		System.out.println(arr.length);
-		System.out.println(arr[0].length);
 		SetMatrixRowColumnToZero sm = new SetMatrixRowColumnToZero();
 		System.out.println("original matrix: ");
 		sm.printMatrix(arr);
 		System.out.println("after setting to zero: ");
 		sm.setRowAndColumnToZero(arr);
 		sm.printMatrix(arr);
-		
 	}
 
 }

@@ -3,6 +3,11 @@ package com.example.stringarray;
 import java.util.Arrays;
 import java.util.Hashtable;
 
+/**
+ * this program checks if two string are permutations of each other.
+ * @author vikesh
+ *
+ */
 public class AreStringsPermutations {
 
 	public boolean isPermutationByHashtable(String s1, String s2) {

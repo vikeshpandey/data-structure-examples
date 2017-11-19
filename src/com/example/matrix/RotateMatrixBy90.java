@@ -1,5 +1,10 @@
 package com.example.matrix;
 
+/**
+ * This program demonstrates the way to rotate a matrix by 90 degree anti clockwise
+ * @author vikesh
+ *
+ */
 public class RotateMatrixBy90 {
 
 	public void transpose(int[][] arr) {
