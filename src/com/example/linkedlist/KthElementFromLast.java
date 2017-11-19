@@ -2,6 +2,13 @@ package com.example.linkedlist;
 
 import java.util.LinkedList;
 
+/**
+ * this program demonstrates the way to print the kth element from last in a linked list
+ * list
+ * 
+ * @author vikesh
+ *
+ */
 public class KthElementFromLast {
 
 	public Node getKthFromLast(LinkedList<Node> list, int k) {
