@@ -13,7 +13,7 @@ If you want to contribute, feel free to submit a merge request.
 * Get Kth element from last
 * Remove duplicates
 
-#### Matrix:
+##### Matrix:
 * Rotate matrix by 90 degree anti-clockwise
 * If any element in matrix is 0, set the whole row and column to 0
 
