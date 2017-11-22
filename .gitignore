@@ -1,6 +1,7 @@
 .classpath
 .project
 .metadata/
+.idea/
 RemoteSystemsTempFiles/
 # Compiled class file
 *.class
