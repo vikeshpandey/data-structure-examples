@@ -23,6 +23,19 @@ If you want to contribute, feel free to submit a merge request.
 * Compress a string using basic compression technique
 * Check if two strings are just one edit away from being same.
 * Url-ify a string with %20
+* Create ArrayList without using ArrayList
+* Create StringBuilder without using StringBuilder
+
+#### Sorting Algorithms
+* Bubble sort
+* Selection sort
+* Insertion sort
+* Merge sort
+* Heap sort
+* Quick sort
+
+#### Searching Algorithms
+* Binary search
 
 
 #Happy learning !!
