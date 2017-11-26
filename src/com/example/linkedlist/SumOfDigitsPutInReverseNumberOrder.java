@@ -24,7 +24,9 @@ public class SumOfDigitsPutInReverseNumberOrder {
                 addElement(newList, sum);
             }else{
                 carry = 1;
-                sum = sum%10;
+                if(firstListNode.next != null) {
+                    sum = sum % 10;
+                }
                 addElement(newList, sum);
             }
 
@@ -46,15 +48,15 @@ public class SumOfDigitsPutInReverseNumberOrder {
     public static void main(String[] args) {
 
         SumOfDigitsPutInReverseNumberOrder sodl = new SumOfDigitsPutInReverseNumberOrder();
-        Node first1 = new Node(7);
-        Node second1 = new Node(1);
-        Node third1 = new Node(6);
+        Node first1 = new Node(9);
+        Node second1 = new Node(7);
+        Node third1 = new Node(8);
         first1.setNext(second1);
         second1.setNext(third1);
 
-        Node first2 = new Node(5);
-        Node second2 = new Node(9);
-        Node third2 = new Node(2);
+        Node first2 = new Node(6);
+        Node second2 = new Node(8);
+        Node third2 = new Node(5);
         first2.setNext(second2);
         second2.setNext(third2);
 
