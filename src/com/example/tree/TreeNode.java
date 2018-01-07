@@ -36,4 +36,13 @@ public class TreeNode {
     public void setRight(final TreeNode right) {
         this.right = right;
     }
+
+    public static void printTree(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        System.out.println("Element: " + root.getValue());
+        printTree(root.getLeft());
+        printTree(root.getRight());
+    }
 }
