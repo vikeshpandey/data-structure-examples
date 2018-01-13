@@ -9,25 +9,25 @@ public class TreeTraversal {
 
     public void preOrderTraversal(TreeNode node) {
         if (node != null) {
-            System.out.println(node.getValue());
-            preOrderTraversal(node.getLeft());
-            preOrderTraversal(node.getRight());
+            System.out.println(node.value);
+            preOrderTraversal(node.left);
+            preOrderTraversal(node.right);
         }
     }
 
     public void inOrderTraversal(TreeNode node) {
         if (node != null) {
-            inOrderTraversal(node.getLeft());
-            System.out.println(node.getValue());
-            inOrderTraversal(node.getRight());
+            inOrderTraversal(node.left);
+            System.out.println(node.value);
+            inOrderTraversal(node.right);
         }
     }
 
     public void postOrderTraversal(TreeNode node) {
         if (node != null) {
-            postOrderTraversal(node.getLeft());
-            postOrderTraversal(node.getRight());
-            System.out.println(node.getValue());
+            postOrderTraversal(node.left);
+            postOrderTraversal(node.right);
+            System.out.println(node.value);
         }
     }
 

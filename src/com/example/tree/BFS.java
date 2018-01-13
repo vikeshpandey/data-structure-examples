@@ -10,12 +10,12 @@ class BFS {
         queue.add(root);
         while (!queue.isEmpty()) {
             TreeNode tempNode = queue.poll();
-            System.out.println(tempNode.getValue());
-            if (tempNode.getLeft() != null) {
-                queue.add(tempNode.getLeft());
+            System.out.println(tempNode.value);
+            if (tempNode.left != null) {
+                queue.add(tempNode.left);
             }
-            if (tempNode.getRight() != null) {
-                queue.add(tempNode.getRight());
+            if (tempNode.right != null) {
+                queue.add(tempNode.right);
             }
         }
     }

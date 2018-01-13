@@ -10,8 +10,8 @@ public class SortedArrayToBST {
         }
         int mid = (start + end) / 2;
         TreeNode root = new TreeNode(arr[mid]);
-        root.setLeft(convertSortedArrayToBST(start, mid - 1, arr));
-        root.setRight(convertSortedArrayToBST(mid + 1, end, arr));
+        root.left = convertSortedArrayToBST(start, mid - 1, arr);
+        root.right = convertSortedArrayToBST(mid + 1, end, arr);
         return root;
     }
 
