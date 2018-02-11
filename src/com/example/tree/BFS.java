@@ -6,7 +6,7 @@ import java.util.LinkedList;
 class BFS {
 
     void printBFS(TreeNode root) {
-        LinkedList<TreeNode> queue = new LinkedList();
+        LinkedList<TreeNode> queue = new LinkedList<>();
         queue.add(root);
         while (!queue.isEmpty()) {
             TreeNode tempNode = queue.poll();

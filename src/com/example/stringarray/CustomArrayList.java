@@ -17,7 +17,6 @@ public class CustomArrayList {
     }
 
     public void add(Object element) {
-        boolean newCapacity = false;
         if(this.filledCapacity == this.capacity) {
             int newCapacity1 = this.capacity + (this.capacity >> 1);
             this.array = Arrays.copyOf(this.array, newCapacity1);

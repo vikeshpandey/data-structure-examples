@@ -8,7 +8,7 @@ import java.util.Stack;
 public class SortStack {
     Stack<Integer> temp = new Stack<>();
 
-    public void sortStack(Stack s) {
+    public void sortStack(Stack<Integer> s) {
         while (!s.isEmpty()) {
             int s1 = (int) s.pop();
             while (!temp.isEmpty() && (temp.peek() > s1)) {

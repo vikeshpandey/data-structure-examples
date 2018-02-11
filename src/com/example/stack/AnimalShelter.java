@@ -80,13 +80,13 @@ public class AnimalShelter {
         animalShelter.enQueue(AnimalType.DOG);
         animalShelter.enQueue(AnimalType.CAT);
 
-        System.out.println("total animals is the shelter: " + animalShelter.shelterSerialId);
+        System.out.println("total animals is the shelter: " + AnimalShelter.shelterSerialId);
         System.out.println("de queue any animal who came first to shelter(should be a cat): " + animalShelter
                 .deQueueAny().getAnimalType());
-        System.out.println("total animals is the shelter: " + animalShelter.shelterSerialId);
+        System.out.println("total animals is the shelter: " + AnimalShelter.shelterSerialId);
         System.out.println("de queue a cat only from the shelter: " + animalShelter.deQueueCat().getAnimalType());
         System.out.println("de queue a dog only from the shelter: " + animalShelter.deQueueDog().getAnimalType());
-        System.out.println("total animals is the shelter: " + animalShelter.shelterSerialId);
+        System.out.println("total animals is the shelter: " + AnimalShelter.shelterSerialId);
 
     }
 }
