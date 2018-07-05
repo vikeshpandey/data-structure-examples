@@ -1,4 +1,4 @@
-# CodingExamples
+# data-structure-examples
 
 ### This repository contains examples around various data structures like arrays, string, list, stack queues etc.
 
