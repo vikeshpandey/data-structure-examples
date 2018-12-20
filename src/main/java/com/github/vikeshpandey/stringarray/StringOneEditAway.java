@@ -1,63 +1,61 @@
 package com.github.vikeshpandey.stringarray;
 
-import java.util.Hashtable;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
  * this program check if given two string, both are just 1 or 0 edit away from
  * being a palindrome of each other: for example: "pale", "ple"
- * 
- * @author vikesh
  *
+ * @author vikesh
  */
 public class StringOneEditAway {
 
-	public boolean isEditAway(final String s1, final String s2) {
-		if (s1.equals(s2)) {
-			return true;
-		}
+    private static boolean isOneEditAway(final String first, final String second) {
+        if (first == null || second == null) {
+            return false;
+        }
+        final int firstStringLength = first.trim().length();
+        final int secondStringLength = second.trim().length();
+        if (firstStringLength == 0 || secondStringLength == 0 ||
+                    isDifferenceGreaterThanOne(firstStringLength, secondStringLength)) {
+            return false;
+        }
+        final Map<Character, Integer> map = new HashMap<>();
+        for (char c : first.toCharArray()) {
+            map.merge(c, 1, (a, b) -> a + b);
+        }
+        for (char c : second.toCharArray()) {
+            map.merge(c, 1, (a, b) -> a + b);
+        }
 
-		Hashtable<Character, Integer> ht = new Hashtable<>();
+        int count = 0;
+        for (Map.Entry<Character, Integer> entry : map.entrySet()) {
+            if (entry.getValue() == 1) {
+                count++;
+                if (count > 2) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 
-		char[] s1Arr = s1.toCharArray();
-		char[] s2Arr = s2.toCharArray();
+    private static boolean isDifferenceGreaterThanOne(final int firstStringLength, final int secondLength) {
+        int difference = firstStringLength > secondLength ?
+                                 firstStringLength - secondLength
+                                 : secondLength - firstStringLength;
+        return difference > 1;
+    }
 
-		for (int i = 0; i < s1Arr.length; i++) {
-			ht.put(s1Arr[i], 1);
-		}
+    public static void main(String[] args) {
+        System.out.println("this should return true, actual result is : " + isOneEditAway("pale", "ple"));
 
-		for (int i = 0; i < s2Arr.length; i++) {
-			if (ht.get(s2Arr[i]) != null) {
-				ht.put(s2Arr[i], ht.get(s2Arr[i]) + 1);
-			} else
-				ht.put(s2Arr[i], 1);
-		}
+        System.out.println("this should return true, actual result is : " + isOneEditAway("pales", "pale"));
 
-		int count = 0;
-		for (Map.Entry<Character, Integer> e : ht.entrySet()) {
-			if (e.getValue() == 1) {
-				count++;
-			}
-		}
+        System.out.println("this should return true, actual result is : " + isOneEditAway("pale", "bale"));
 
-		if (count <= 2) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	public static void main(String[] args) {
-		StringOneEditAway soea = new StringOneEditAway();
-		System.out.println("this should return true, actual result is : " + soea.isEditAway("pale", "ple"));
-
-		System.out.println("this should return true, actual result is : " + soea.isEditAway("pales", "pale"));
-
-		System.out.println("this should return true, actual result is : " + soea.isEditAway("pale", "bale"));
-
-		System.out.println("this should return false, actual result is : " + soea.isEditAway("pale", "bake"));
-		// TODO Auto-generated method stub
-
-	}
+        System.out.println("this should return false, actual result is : " + isOneEditAway("pale", "bake"));
+    }
 
 }
