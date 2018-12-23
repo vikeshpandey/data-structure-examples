@@ -8,7 +8,7 @@ import java.util.Set;
  */
 public class DetectLoop {
 
-	public static Node findLoop(Node head) {
+	private static Node findLoop(Node head) {
 		Set<Node> set = new HashSet<>();
 		Node current = head;
 
@@ -23,7 +23,7 @@ public class DetectLoop {
 		return null;
 	}
 
-	public static boolean hasLoop(Node head) {
+	private static boolean hasLoop(Node head) {
 		Node fast = head;
 		Node slow = head;
 		while (fast != null & fast.next != null) {

@@ -1,15 +1,15 @@
 package com.github.vikeshpandey.linkedlist;
 
 
-public class Node {
+class Node {
 		int value;
 		Node next;
 		
-		public Node(int value){
+		Node(int value){
 			this.value = value;
 		}
 		
-		public void setNext(Node next){
+		void setNext(Node next){
 			this.next = next;
 		}
 }

@@ -9,22 +9,22 @@ import java.util.LinkedList;
  */
 public class SumOfDigitsPutInReverseNumberOrder {
 
-    public LinkedList<Node> getSumOfDigitsOfLinkedList(Node n1, Node n2){
+    private static LinkedList<Node> getSumOfDigitsOfLinkedList(Node n1, Node n2) {
         LinkedList<Node> newList = new LinkedList<>();
         int sum;
         int carry = 0;
         Node firstListNode = n1;
         Node secondListNode = n2;
 
-        while(firstListNode != null && secondListNode != null){
+        while (firstListNode != null && secondListNode != null) {
             sum = firstListNode.value + secondListNode.value;
-            sum = sum+carry;
+            sum = sum + carry;
 
-            if(sum<=9){
+            if (sum <= 9) {
                 addElement(newList, sum);
-            }else{
+            } else {
                 carry = 1;
-                if(firstListNode.next != null) {
+                if (firstListNode.next != null) {
                     sum = sum % 10;
                 }
                 addElement(newList, sum);
@@ -36,18 +36,18 @@ public class SumOfDigitsPutInReverseNumberOrder {
         return newList;
     }
 
-    public void addElement(LinkedList<Node> newList, int sum){
+    private static void addElement(LinkedList<Node> newList, int sum) {
         final Node next = new Node(sum);
-        if(newList.isEmpty()){
+        if (newList.isEmpty()) {
             newList.add(next);
-        }else{
+        } else {
             newList.getLast().setNext(next);
             newList.add(next);
         }
     }
+
     public static void main(String[] args) {
 
-        SumOfDigitsPutInReverseNumberOrder sodl = new SumOfDigitsPutInReverseNumberOrder();
         Node first1 = new Node(9);
         Node second1 = new Node(7);
         Node third1 = new Node(8);
@@ -61,16 +61,43 @@ public class SumOfDigitsPutInReverseNumberOrder {
         second2.setNext(third2);
 
 
-        LinkedList<Node> result = sodl.getSumOfDigitsOfLinkedList(first1, first2);
-        sodl.printList(result.getFirst());
+        Node result = getSumRecursively(first1, first2, 0);
+        printList(result);
 
     }
 
-    public void printList(Node head) {
+    private static void printList(Node head) {
         Node n = head;
-        while (n !=null) {
+        while (n != null) {
             System.out.println(n.value);
             n = n.next;
         }
+    }
+
+    private static Node getSumRecursively(Node head1, Node head2, int carry) {
+        if (head1 == null && head2 == null && carry == 0) {
+            return null;
+        }
+        int sum = 0;
+        if (head1 != null) {
+            sum = sum + head1.value;
+        }
+        if (head2 != null) {
+            sum = sum + head2.value;
+        }
+
+        sum = sum + carry;
+        if (sum > 10) {
+            sum = sum % 10;
+            carry = 1;
+        }
+        Node result = new Node(sum);
+        if (head1 != null || head2 != null) {
+            head1 = head1 == null ? null : head1.next;
+            head2 = head2 == null ? null : head2.next;
+            Node next = getSumRecursively(head1, head2, carry);
+            result.setNext(next);
+        }
+        return result;
     }
 }

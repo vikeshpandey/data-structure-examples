@@ -1,72 +1,80 @@
 package com.github.vikeshpandey.linkedlist;
 
-import java.util.Hashtable;
-import java.util.LinkedList;
+import java.util.HashSet;
 
 /**
  * this program demonstrates the way to remove duplicates from singly linked
  * list
- * 
- * @author vikesh
  *
+ * @author vikesh
  */
 public class RemoveDuplicates {
 
-	public void removeDuplicates(Node head) {
-		Hashtable<Integer, Integer> ht = new Hashtable<>();
-		Node previous = null;
-		Node current = head;
-		while(current!=null){
-			if (ht.containsKey(current.value)) {
-				previous.next = current.next;
-			} else {
-				ht.put(current.value, 1);
-				previous = current;
-			}
-			current = current.next;
-		}
-	}
+    public static void main(String[] args) {
 
-	public void printList(Node head) {
-		Node n = head;
-		while (n !=null) {
-			System.out.println(" item is: " + n.value);
-			n = n.next;
-		}
-	}
+        Node first = new Node(1);
+        Node second = new Node(2);
+        Node third = new Node(3);
+        Node forth = new Node(2);
+        Node fifth = new Node(4);
+        Node sixth = new Node(1);
 
-	public static void main(String[] args) {
-		
-		RemoveDuplicates rd = new RemoveDuplicates();
-	
-		Node first = new Node(1);
-		Node second = new Node(2);
-		Node third = new Node(3);
-		Node forth = new Node(2);
-		Node fifth = new Node(4);
-		Node sixth = new Node(1);
-		
-		//connect the nodes
-		first.setNext(second);
-		second.setNext(third);
-		third.setNext(forth);
-		forth.setNext(fifth);
-		fifth.setNext(sixth);
+        //connect the nodes
+        first.setNext(second);
+        second.setNext(third);
+        third.setNext(forth);
+        forth.setNext(fifth);
+        fifth.setNext(sixth);
 
-		LinkedList<Node> list = new LinkedList<>();
-		list.addFirst(first);
-		list.add(second);
-		list.add(third);
-		list.add(forth);
-		list.add(fifth);
-		list.addLast(sixth);
+        System.out.println("the list is : ");
+        printList(first);
 
-		System.out.println("the list is : ");
-		rd.printList(list.getFirst());
-		
-		System.out.println("list after removing duplicates is: ");
-		rd.removeDuplicates(list.getFirst());
-		rd.printList(list.getFirst());
-	}
+        System.out.println("list after removing duplicates using extra space is: ");
+        removeDuplicates(first);
+        printList(first);
+        System.out.println("list after removing duplicates without extra space is: ");
+        removeDuplicatesWithoutExtraSpace(first);
+        printList(first);
+    }
 
+    private static void removeDuplicates(final Node head) {
+        final HashSet<Integer> set = new HashSet<>();
+        Node temp = head, prev = null;
+
+        while (temp != null) {
+            if (set.contains(temp.value)) {
+                prev.next = temp.next;
+
+            } else {
+                set.add(temp.value);
+                prev = temp;
+            }
+            temp = temp.next;
+        }
+    }
+
+    private static void removeDuplicatesWithoutExtraSpace(final Node head) {
+        Node currentNode = head;
+        Node runnerNode;
+
+        while (currentNode != null) {
+            runnerNode = currentNode;
+            while (runnerNode.next != null) {
+                if (currentNode.value == runnerNode.next.value) {
+                    runnerNode.next = runnerNode.next.next;
+                } else {
+                    runnerNode = runnerNode.next;
+                }
+            }
+            currentNode = currentNode.next;
+        }
+    }
+
+    private static void printList(Node head) {
+        Node n = head;
+        while (n != null) {
+            System.out.println(" item is: " + n.value);
+            n = n.next;
+        }
+    }
 }

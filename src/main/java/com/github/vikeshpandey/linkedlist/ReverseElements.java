@@ -1,26 +1,23 @@
 package com.github.vikeshpandey.linkedlist;
 
-import java.util.LinkedList;
-
 /**
  * program to reverse linked list.
  */
 public class ReverseElements {
 
-    public Node reverse(Node head){
-        Node curr = head;
-        Node next;
-        Node prev = null;
-
-        while(curr != null){
-            next = curr.next;
-            curr.next = prev;
-            prev = curr;
-            curr = next;
+    private static Node reverse(Node head) {
+        Node current = head;
+        Node previous = null;
+        Node next = null;
+        while (current != null) {
+            next = current.next;
+            current.next = previous;
+            previous = current;
+            current = next;
         }
-        head = prev;
-        return head;
+        return previous;
     }
+
 
     public static void main(String[] args) {
         Node first = new Node(7);
@@ -29,19 +26,13 @@ public class ReverseElements {
         first.setNext(second);
         second.setNext(third);
 
-        LinkedList<Node> list = new LinkedList<>();
-        list.add(first);
-        list.add(second);
-        list.add(third);
-
-        ReverseElements re = new ReverseElements();
-        Node head = re.reverse(list.getFirst());
-        re.printList(head);
+        Node head = reverse(first);
+        printList(head);
     }
 
-    public void printList(Node head) {
+    private static void printList(Node head) {
         Node n = head;
-        while (n !=null) {
+        while (n != null) {
             System.out.println(n.value);
             n = n.next;
         }

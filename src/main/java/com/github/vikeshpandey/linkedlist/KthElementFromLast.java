@@ -1,86 +1,65 @@
 package com.github.vikeshpandey.linkedlist;
 
-import java.util.LinkedList;
+import static java.util.Objects.requireNonNull;
 
 /**
  * this program demonstrates the way to print the kth element from last in a linked list
  * list
- * 
- * @author vikesh
  *
+ * @author vikesh
  */
 public class KthElementFromLast {
 
-	public Node getKthFromLast(LinkedList<Node> list, int k) {
+    private static Node findKthElement(final Node head, final int pos) {
+        Node slowRunner = head;
+        Node fastRunner = head;
 
-		if (k == 0) {
-			return list.getLast();
-		}
+        for (int i = 0; i < pos; i++) {
+            if (fastRunner == null) {
+                return null;
+            }
+            fastRunner = fastRunner.next;
+        }
+        while (fastRunner != null) {
+            slowRunner = slowRunner.next;
+            fastRunner = fastRunner.next;
+        }
+        return slowRunner;
+    }
 
-		if (k == list.size()) {
-			return list.getFirst();
-		}
+    private static void printList(Node head) {
+        Node n = head;
+        while (n != null) {
+            System.out.print(n.value);
+            n = n.next;
+        }
+        System.out.println();
+    }
 
-		Node fast = list.getFirst();
-		for (int i = 0; i < k; i++) {
-			fast = fast.next;
-		}
+    public static void main(String[] args) {
+        Node first = new Node(1);
+        Node second = new Node(2);
+        Node third = new Node(3);
+        Node forth = new Node(4);
+        Node fifth = new Node(5);
+        Node sixth = new Node(6);
+        Node seventh = new Node(7);
+        Node eighth = new Node(8);
+        Node nineth = new Node(9);
+        // connect the nodes
+        first.setNext(second);
+        second.setNext(third);
+        third.setNext(forth);
+        forth.setNext(fifth);
+        fifth.setNext(sixth);
+        sixth.setNext(seventh);
+        seventh.setNext(eighth);
+        eighth.setNext(nineth);
 
-		Node slow = list.getFirst();
-
-		while (fast.next != null) {
-			fast = fast.next;
-			slow = slow.next;
-		}
-
-		return slow.next;
-	}
-	
-	public void printList(Node head) {
-		Node n = head;
-		while (n !=null) {
-			System.out.println(n.value);
-			n = n.next;
-		}
-	}
-
-	public static void main(String[] args) {
-		Node first = new Node(1);
-		Node second = new Node(2);
-		Node third = new Node(3);
-		Node forth = new Node(4);
-		Node fifth = new Node(5);
-		Node sixth = new Node(6);
-		Node seventh = new Node(7);
-		Node eighth = new Node(8);
-		Node nineth = new Node(9);
-		// connect the nodes
-		first.setNext(second);
-		second.setNext(third);
-		third.setNext(forth);
-		forth.setNext(fifth);
-		fifth.setNext(sixth);
-		sixth.setNext(seventh);
-		seventh.setNext(eighth);
-		eighth.setNext(nineth);
-
-		// add elements to list
-		LinkedList<Node> list = new LinkedList<>();
-		list.addFirst(first);
-		list.add(second);
-		list.add(third);
-		list.add(forth);
-		list.add(fifth);
-		list.add(sixth);
-		list.add(seventh);
-		list.add(eighth);
-		list.addLast(nineth);
-
-		KthElementFromLast kel = new KthElementFromLast();
-		System.out.println("the list is: ");
-		kel.printList(list.getFirst());
-		System.out.println("when k is 3, kth element from last is:" + kel.getKthFromLast(list, 3).value);
-		System.out.println("when k is 4, kth element from last is:" + kel.getKthFromLast(list, 4).value);
-	}
+        System.out.println("the list is: ");
+        printList(first);
+        System.out.println("when k is 3, kth element from last is:" + requireNonNull(findKthElement(first, 3)).value);
+        System.out.println("when k is 4, kth element from last is:" + requireNonNull(findKthElement(first, 4)).value);
+    }
 
 }
