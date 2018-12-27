@@ -1,21 +1,32 @@
 package com.github.vikeshpandey.graph;
 
-import java.util.LinkedList;
-
 class Graph {
-    int numberOfVertices;
-    LinkedList<Integer> adjacencyList[];
+    private int index;
+    private Node[] vertices;
 
-    Graph(final int numberOfVertices){
-        this.numberOfVertices = numberOfVertices;
-        adjacencyList = new LinkedList[numberOfVertices];
-        for(int i = 0; i<numberOfVertices; i++){
-            adjacencyList[i] = new LinkedList<>();
+    Graph(final int capacity) {
+        this.vertices = new Node[capacity];
+        this.index = 0;
+    }
+
+    void addNode(Node node) {
+        if (index < vertices.length) {
+            vertices[index] = node;
+            index++;
+        } else {
+            throw new RuntimeException("Graph is at full capacity");
         }
     }
 
-    void addEdge(int node, int vertex){
-        adjacencyList[node].add(vertex);
+    public int getIndex() {
+        return index;
     }
 
+    public int getTotalNumberOfVertices() {
+        return index;
+    }
+
+    public Node[] getVertices() {
+        return vertices;
+    }
 }
